@@ -7,8 +7,8 @@ import { UserInContext } from "../App";
 import { Button } from "react-bootstrap";
 
 // Import React Table
-import ReactTable from "react-table-6";
-import "react-table-6/react-table.css";
+//import ReactTable from "react-table-6";
+//import "react-table-6/react-table.css";
 import "../styles/grabportallist.css";
 
 const GrabberPortalList = () => {
