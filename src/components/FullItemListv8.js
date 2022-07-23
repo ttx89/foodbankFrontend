@@ -28,11 +28,11 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 
-import {
-  RankingInfo,
-  rankItem,
-  compareItems,
-} from "@tanstack/match-sorter-utils";
+// import {
+//   RankingInfo,
+//   rankItem,
+//   compareItems,
+// } from "@tanstack/match-sorter-utils";
 
 const mytable = new Object();
 mytable.itemname = "";
