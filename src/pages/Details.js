@@ -23,10 +23,11 @@ function Details() {
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
   const [reviewcomments, setReviewComments] = useState("");
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/items/")
+      .get(url + "/items/")
       .then(({ data }) => {
         const found = data.find((obj) => {
           return obj._id === id;
@@ -44,7 +45,7 @@ function Details() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/reviews/")
+      .get(url + "/reviews/")
       .then(({ data }) => {
         console.log(data);
         const found = data.filter((obj) => {
@@ -63,8 +64,8 @@ function Details() {
   const grabItem = async (id) => {
     console.log("grab id " + id);
     console.log("grab userinfo " + userInfo);
-    await axios.put("http://localhost:3001/items/", { id, userInfo });
-    await axios.post("http://localhost:3001/grabbeditems/", { id, userInfo });
+    await axios.put(url + "/items/", { id, userInfo });
+    await axios.post(url + "/grabbeditems/", { id, userInfo });
 
     navigate("/grabberportal");
   };
@@ -72,7 +73,7 @@ function Details() {
   const saveItem = async (id) => {
     console.log("save id " + id);
     console.log("save userinfo " + userInfo);
-    await axios.post("http://localhost:3001/wisheditems/", { id, userInfo });
+    await axios.post(url + "/wisheditems/", { id, userInfo });
 
     navigate("/grabberportal");
   };
@@ -88,7 +89,7 @@ function Details() {
       reviewcomments: reviewcomments,
     };
 
-    await axios.post("http://localhost:3001/reviews", review);
+    await axios.post(url + "/reviews", review);
   };
 
   return (

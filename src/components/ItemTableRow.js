@@ -3,6 +3,8 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 
 const ItemTableRow = (props) => {
+  
+  const url = process.env.REACT_APP_SERVER_URL;
   const {
     _id,
     itemname,
@@ -15,7 +17,7 @@ const ItemTableRow = (props) => {
 
   const wishList = () => {
     axios
-      .delete("http://localhost:3001/items/delete-item/" + _id)
+      .delete(url + "/items/delete-item/" + _id)
       .then((res) => {
         if (res.status === 200) {
           alert("item successfully deleted");
@@ -27,7 +29,7 @@ const ItemTableRow = (props) => {
 
   const grabItem = () => {
     axios
-      .delete("http://localhost:3001/items/delete-item/" + _id)
+      .delete(url + "/items/delete-item/" + _id)
       .then((res) => {
         if (res.status === 200) {
           alert("item successfully deleted");

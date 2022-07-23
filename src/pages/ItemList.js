@@ -13,12 +13,13 @@ function ItemList() {
 
   const [user, setUser] = useState("");
   const usernameRef = useRef();
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
 
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/items/" + userInfo)
+      .get(url + "/items/" + userInfo)
       .then(({ data }) => {
         setItems(data);
       })

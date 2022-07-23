@@ -11,6 +11,7 @@ import "react-table-6/react-table.css";
 import "../styles/itemlist_g.css";
 
 const FullItemList = () => {
+  const url = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
 
 
@@ -21,7 +22,8 @@ const FullItemList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/items/")
+    .get(url + "/items")
+      // .get("http://localhost:3001/items/")
       .then(({ data }) => {
         setItems(data);
       })

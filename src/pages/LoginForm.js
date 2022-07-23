@@ -18,6 +18,7 @@ const LoginForm = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     // const [success, setSuccess] = useState(false);
+    const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
     useEffect(() => {
         userRef.current.focus();
@@ -33,7 +34,7 @@ const LoginForm = () => {
         e.preventDefault();
         try {
             axios.post(
-                "http://localhost:3001/users/login",
+                url + "/users/login",
                 JSON.stringify({ username: user, password: pwd }),
                 {
                     headers: { 'Content-Type': 'application/json' },

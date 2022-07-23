@@ -109,10 +109,11 @@ const FullItemListv8 = () => {
   const [items, setItems] = useState([]);
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  const url = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/items/")
+      .get(url + "/items/")
       .then(({ data }) => {
         setItems(data);
       })

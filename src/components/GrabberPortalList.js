@@ -18,10 +18,11 @@ const GrabberPortalList = () => {
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = React.useContext(UserInContext);
+  const url = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/items/")
+      .get(url + "/items/")
       .then(({ data }) => {
         setItems(data);
       })
@@ -32,7 +33,7 @@ const GrabberPortalList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/grabbeditems/${userInfo}`, userInfo)
+      .get(url + `/grabbeditems/${userInfo}`, userInfo)
       .then(({ data }) => {
         setGrabbedItems(data);
       })
@@ -43,7 +44,7 @@ const GrabberPortalList = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/wisheditems/${userInfo}`, userInfo)
+      .get(url + `/wisheditems/${userInfo}`, userInfo)
       .then(({ data }) => {
         setWishedItems(data);
       })

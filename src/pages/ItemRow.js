@@ -15,9 +15,11 @@ const ItemRow = (props) => {
     winner,
   } = props.obj;
 
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+
   const deleteItem = () => {
     axios
-      .delete("http://localhost:3001/items/delete/" + _id)
+      .delete(url + "/items/delete/" + _id)
       .then((res) => {
         if (res.status === 200) {
           alert("Item successfully deleted");

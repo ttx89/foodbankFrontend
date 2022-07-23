@@ -37,6 +37,8 @@ const RegisterForm = () => {
   const [errMsg, setErrMsg] = useState("");
 
   const [success, setSuccess] = useState(false);
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -69,7 +71,7 @@ const RegisterForm = () => {
     try {
       axios
         .post(
-          "http://localhost:3001/users/register",
+          url + "/users/register",
           JSON.stringify({ username: user, password: pwd }),
           {
             headers: { "Content-Type": "application/json" },

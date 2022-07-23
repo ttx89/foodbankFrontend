@@ -17,11 +17,12 @@ function Update(props) {
   });
   const params = useParams();
   const navigate = useNavigate();
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
   useEffect(() => {
     const id = params.id.toString();
     axios
-      .get("http://localhost:3001/items/edit/" + id)
+      .get(url + "/items/edit/" + id)
       .then((res) => {
         const {
           itemname,
@@ -64,7 +65,7 @@ function Update(props) {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(`http://localhost:3001/items/edit/${params.id}`, {
+    await fetch(url + `/items/edit/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(editedItem),
       headers: {
