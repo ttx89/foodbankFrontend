@@ -6,7 +6,7 @@ import axios from "axios";
 import { Button } from "react-bootstrap";
 // import ItemTableRow from "./ItemTableRow";
 // import ReactTable from "react-table-6";
-import "react-table-6/react-table.css";
+//import "react-table-6/react-table.css";
 import "../styles/itemlist_g.css";
 import {
   createColumnHelper,
