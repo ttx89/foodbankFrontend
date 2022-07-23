@@ -1,10 +1,10 @@
 import React from "react";
-import FullItemList from "../components/FullItemList";
+import FullItemListv8 from "../components/FullItemListv8";
 
 const GetFoodList = () => {
   return (
     <div>
-      <FullItemList />
+      <FullItemListv8 />
     </div>
   );
 };
