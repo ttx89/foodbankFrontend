@@ -88,11 +88,15 @@ const columns = [
   }),
   columnHelper.accessor("address", {
     header: "Address",
-    cell: () => "adsadas",
+    //cell: () => "adsadas",
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor("description", {
     header: "Description",
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor("isActive", {
+    header: "Status",
     footer: (info) => info.column.id,
   }),
 ];
